@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta http-equiv="Conten  t-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<title>test</title>
+	</head>
+	<body>
+		<div style="display: flex; height: 100%;">
+			<div style="margin: auto">
+				<i id="cross" class="fa fa-dot-circle-o" style="position: relative; left: 0px; top: 0px;"></i>
+			</div>
+		</div>
+		<script>
+		window.addEventListener("devicemotion", accelerometerUpdate, true);
+		function accelerometerUpdate(event) {
+		var aX = event.accelerationIncludingGravity.x*100;
+		var aY = event.accelerationIncludingGravity.y*100;
+		document.querySelector("#cross").style.left = -aX + 'px';
+		document.querySelector("#cross").style.top = aY + 'px';
+		// ix aY is negative, switch rotation
+		if (aY <0) {
+		aX = -aX - 180;
+		}
+		console.log('test2');
+		}
+		</script>
+	</body></html>
